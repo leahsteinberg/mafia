@@ -10,7 +10,7 @@ callers = {"+18185218419": "leah"}
 def hello_monkey():
   from_number = request.values.get('From', None)
   if from_number in callers:
-    message = callers[from_number] + "heres your emoji" +u" \U0001F31F"
+    message = callers[from_number] + "heres your emoji" +u" \U0001F412"
   else:
     message = u" \U0001F31F"
   resp = twilio.twiml.Response()
