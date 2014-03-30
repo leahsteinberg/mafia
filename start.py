@@ -1,6 +1,7 @@
 from twilio.rest import TwilioRestClient
 from flask import Flask, request, redirect
 import twilio.twiml
+from emoji import e
 
 app = Flask(__name__)
 callers = {"+18185218419": "leah"}
@@ -9,10 +10,14 @@ callers = {"+18185218419": "leah"}
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
   from_number = request.values.get('From', None)
+  they_sent = request.values.get('Body', None)
+  message = ''
+  if they_sent in e.keys():
+    message += e[they_sent] + "  "
   if from_number in callers:
-    message = callers[from_number] + "heres your emoji" +u" \U0001F412"
+    message += callers[from_number]
   else:
-    message = u" \U0001F31F"
+    message += u" \U0001F31F"
   resp = twilio.twiml.Response()
   resp.message(message)
   return str(resp)
