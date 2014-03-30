@@ -3,14 +3,14 @@ from flask import Flask, request, redirect
 import twilio.twiml
 
 app = Flask(__name__)
-callers = {"+18185218419": "leahrose"}
+callers = {"+18185218419": "leah"}
 
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
   from_number = request.values.get('From', None)
   if from_number in callers:
-    message = callers[from_number] + u" \U0001F31F"
+    message = callers[from_number] + "heres your emoji" +u" \U0001F31F"
   else:
     message = u" \U0001F31F"
   resp = twilio.twiml.Response()
