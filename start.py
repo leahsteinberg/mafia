@@ -3,12 +3,16 @@ from flask import Flask, request, redirect
 import twilio.twiml
 
 app = Flask(__name__)
+callers = {"+18185218419": "leahrose"}
+
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
-
+  from_number = request.values.get('From', None)
+  if from_number in callers:
+    message = callers[from_number] + "you rock."
   resp = twilio.twiml.Response()
-  resp.message("Hello Leah!")
+  resp.message(message)
   return str(resp)
 
 if __name__ == '__main__':
