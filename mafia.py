@@ -31,6 +31,19 @@ def player_join(message):
 #   response.message("Welcome to this little town. Respond with your name.")
   return new_number
 
+class Player:
+  def __init__(name, number):
+    self.mafia = False
+    self.alive = True
+    self.number = number
+    self.name = name
+    self.cookie = None
+
+
+
+
+
+
 def player_init(message):
   text = message.values.get('Body', None)
   for word in text.lower().split():
@@ -40,15 +53,6 @@ def player_init(message):
   player = Player(name, message.values.get('From', None))
   townsfolk.append(player)
   return player
-
-class Player():
-  def __init__(name, number):
-    self.mafia = False
-    self.alive = True
-    self.number = number
-    self.name = name
-    self.cookie = None
-
 
     #initialization:
 
