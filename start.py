@@ -14,7 +14,7 @@ game_state = 'joining'
 def mafia_game():
   this_number = request.values.get('From', None)
   if game_state == 'joining':
-    print typeof(request.values.get('From', None)), 'type of phone number'
+    print request.values.get('From', None)
     print player_counts.keys()
     if not this_number in player_counts.keys():
       print "in thisss"
