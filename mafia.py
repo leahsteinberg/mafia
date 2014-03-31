@@ -38,7 +38,7 @@ class Player:
     self.alive = True
     self.number = number
     self.name = name
-    self.cookie = None
+    print "in end of player constructor"
 
 
 
