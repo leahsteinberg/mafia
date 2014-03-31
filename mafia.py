@@ -68,8 +68,11 @@ def trigger_beginning():
   print "in trigger beginning!!"
 
 def clean_text(text):
+  print "in clean text, " + text
   text = text.lower()
+  print text
   text_list = text.split()
+  print text_list
   return text_list
   
 
