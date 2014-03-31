@@ -13,9 +13,8 @@ game_state = 'joining'
 @app.route("/", methods=['GET', 'POST'])
 def mafia_game():
   this_number = request.values.get('From', None)
-  print game_state
   if game_state == 'joining':
-    print request.values.get('From', None)
+    print typeof(request.values.get('From', None)), 'type of phone number'
     print player_counts.keys()
     if not this_number in player_counts.keys():
       print "in thisss"
