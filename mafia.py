@@ -67,6 +67,12 @@ def player_init(request, number):
 def trigger_beginning():
   print "in trigger beginning!!"
 
+def clean_text(text):
+  text = text.lower()
+  text_list = text.split()
+  return text_list
+  
+
 # round: night
 #   EVERYONE:
 #   say it's night time to everyone:
