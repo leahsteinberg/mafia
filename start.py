@@ -28,6 +28,8 @@ def mafia_game():
       name = player_init(request, this_number)
       print "did player init"
       name_msg = "I'm gonna say your name is: " + name
+      if len(player_counts.keys())>0:
+	name_msg += ". once all players have joined, respond with 'begin' to start the game"
       resp = twilio.twiml.Response()
       resp.message(name_msg)
       return str(resp)
