@@ -3,7 +3,7 @@ from twilio.rest import TwilioRestClient
 townsfolk = []
 mafiosos = []
 innocents = []
-player_counts = {"111111":0}
+player_counts = {}
 groups = {"townsfolk": townsfolk, "mafiosos": mafiosos, "innocents": innocents}
 account = "C8713d29f391c6ccdc9b9942d98a407df"
 token = "36c9a371567932584ad625db360f3be"
