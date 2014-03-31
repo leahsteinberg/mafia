@@ -20,6 +20,9 @@ def player_join(message):
   new_number = message.values.get('From', None)
   print new_number
   player_counts[new_number] = 0
+  print "hiii"
+  print player_counts[new_number]
+  print "hiii2"
   return "welcome, whats your name"
 
 
