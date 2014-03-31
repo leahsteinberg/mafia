@@ -15,7 +15,7 @@ accept_switch = False
 def mafia_game():
   this_number = request.values.get('From', None)
   text_list = clean_text(request.values.get('Body', None))
-  print text_list
+  print "something", text_list
   if game_state == 'joining':
     print request.values.get('From', None)
     print player_counts.keys()
