@@ -9,7 +9,6 @@ app = Flask(__name__)
 
 game_state = ['joining', 'beginning', 'night', 'dawn', 'day']
 game_state = 'joining'
-beginning_players = []
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -20,13 +19,16 @@ def mafia_game():
     print request.values.get('From', None)
     print mafia.player_counts.keys()
     if not this_number in mafia.player_counts.keys():
+      print "in thisss"
       join_msg = mafia.player_join(request)
       print join_msg
       resp = twilio.twiml.Response()
       resp.message(join_msg)
       return str(resp)
     elif mafia.player_counts[this_number] > 0:
-      name = player_init(request)
+      "in thatttt"
+      name = player_init(request, this_number)
+      print "did player init"
       name_msg = "I'm gonna say your name is: " + name
       resp = twilio.twiml.Response()
       resp.message(name_msg)

@@ -44,15 +44,20 @@ class Player:
 
 
 
-def player_init(message):
-  text = message.values.get('Body', None)
-  for word in text.lower().split():
+def player_init(request, number):
+  print "in player init"
+  text = request.values.get('Body', None)
+  text = text.lower()
+  text = text.split()
+  name = 'no name'
+  for word in text:
     if word not in ['hi', 'i', 'am', "i'm", 'im']:
       name = word
       break
-  player = Player(name, message.values.get('From', None))
-  townsfolk.append(player)
-  return player
+  new_player = Player(name, number)
+  print "made new player"
+  townsfolk.append(new_player)
+  return new_player
 
     #initialization:
 
