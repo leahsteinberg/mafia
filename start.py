@@ -15,18 +15,18 @@ beginning_players = []
 @app.route("/", methods=['GET', 'POST'])
 def mafia_game():
   if game_state == 'joining':
-    if request.values.get('From', None) not in players_counts:
-      player_counts[request.values.get('From', None)] = 0
-      new_number = mafia.player_join(request)
-    elif player_counts[request.values.get('From', None)] > 0:
-      player_init(request)
-      send_group('townsfolk', 'can_begin')
-  #send message saying that if any of them respond with
-	  # a certain phrase, the game will begin, but until then more 
-	  #people may join.
-    if "begin" in request.values.get('Body', None):
-      game_state = 'begin'
-  return None
+    # if request.values.get('From', None) not in players_counts:
+    player_counts[request.values.get('From', None)] = 0
+    new_number = mafia.player_join(request)
+    # elif player_counts[request.values.get('From', None)] > 0:
+    #   player_init(request)
+    #   send_group('townsfolk', 'can_begin')
+  # #send message saying that if any of them respond with
+	  # # a certain phrase, the game will begin, but until then more 
+	  # #people may join.
+    # if "begin" in request.values.get('Body', None):
+    #   game_state = 'begin'
+  # return None
     
 
 

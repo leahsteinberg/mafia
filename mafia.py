@@ -18,8 +18,12 @@ def send_group(group_str, announcement):
 
 def player_join(message):
   new_number = message.values.get('From', None)
-  response = twilio.twiml.Response()
-  response.message("Welcome to this little town. Respond with your name.")
+  message = client.sms.messages.create(to=new_number, from_="+17472335925",
+	                                     body="welcome whats your name")
+
+
+#   response = twilio.twiml.Response()
+#   response.message("Welcome to this little town. Respond with your name.")
   return new_number
 
 def player_init(message):
