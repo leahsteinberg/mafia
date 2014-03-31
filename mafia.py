@@ -33,6 +33,7 @@ def player_join(message):
 
 class Player:
   def __init__(name, number):
+    print "in player constructor"
     self.mafia = False
     self.alive = True
     self.number = number
@@ -47,13 +48,15 @@ class Player:
 def player_init(request, number):
   print "in player init"
   text = request.values.get('Body', None)
-  text = text.lower()
-  text = text.split()
-  name = 'no name'
-  for word in text:
-    if word not in ['hi', 'i', 'am', "i'm", 'im']:
-      name = word
-      break
+  print text
+  name = text
+  #text = text.lower()
+  #text = text.split()
+  #name = 'no name'
+  #for word in text:
+    #if word not in ['hi', 'i', 'am', "i'm", 'im']:
+      #name = word
+      #break
   print name
   new_player = Player(name, number)
   print "made new player"
