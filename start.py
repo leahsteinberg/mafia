@@ -8,12 +8,14 @@ app = Flask(__name__)
 
 game_state = ['joining', 'beginning', 'night', 'dawn', 'day']
 game_state = 'joining'
+accept_switch = False
 
 
 @app.route("/", methods=['GET', 'POST'])
 def mafia_game():
   this_number = request.values.get('From', None)
   text_list = clean_text(request.values.get('Body', None))
+  print text_list
   if game_state == 'joining':
     print request.values.get('From', None)
     print player_counts.keys()
@@ -22,23 +24,25 @@ def mafia_game():
       # game_state = "beginning"
       # trigger_beginning()
       # return
-    if not this_number in player_counts.keys():
+    if accept_switch and text_list[0] == "begin":
+      trigger_beginning()
+    elif not this_number in player_counts.keys():
       print "in thisss"
       join_msg = player_join(request)
       print join_msg
       resp = twilio.twiml.Response()
       resp.message(join_msg)
       return str(resp)
-    elif this_number in player_counts.keys(): 
+    elif this_number in player_counts.keys():
       "in thatttt"
       name = player_init(request, this_number)
       print "did player init"
       name_msg = "I'm gonna say your name is: " + name
       if len(player_counts.keys())>0:
-	
 	name_msg += ". once all players have joined, respond with 'begin' to start the game"
       resp = twilio.twiml.Response()
       resp.message(name_msg)
+      accept_switch = True
       return str(resp)
 
 
