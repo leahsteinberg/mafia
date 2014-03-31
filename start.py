@@ -16,6 +16,11 @@ def mafia_game():
   if game_state == 'joining':
     print request.values.get('From', None)
     print player_counts.keys()
+    if this_number in player_counts.keys() and len(player_counts.keys()) >0:
+      if request.values.get('From', None).lower().split()[0] == "begin":
+	game_state = "beginning"
+	trigger_beginning()
+	return
     if not this_number in player_counts.keys():
       print "in thisss"
       join_msg = player_join(request)
@@ -29,10 +34,15 @@ def mafia_game():
       print "did player init"
       name_msg = "I'm gonna say your name is: " + name
       if len(player_counts.keys())>0:
+	
 	name_msg += ". once all players have joined, respond with 'begin' to start the game"
       resp = twilio.twiml.Response()
       resp.message(name_msg)
       return str(resp)
+
+
+
+    
 
 
       #if(len(mafia.player_counts.keys()>0:

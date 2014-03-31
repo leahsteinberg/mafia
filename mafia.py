@@ -64,7 +64,8 @@ def player_init(request, number):
   return name
 
     #initialization:
-
+def trigger_beginning():
+  print "in trigger beginning!!"
 
 # round: night
 #   EVERYONE:
