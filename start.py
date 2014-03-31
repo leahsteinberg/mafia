@@ -12,7 +12,7 @@ game_state = 'joining'
 
 @app.route("/", methods=['GET', 'POST'])
 def mafia_game():
-  this_number = request.valuse.get('From', None)
+  this_number = request.values.get('From', None)
   print game_state
   if game_state == 'joining':
     print request.values.get('From', None)
