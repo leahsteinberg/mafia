@@ -29,7 +29,7 @@ def player_join(message):
 
 #   response = twilio.twiml.Response()
 #   response.message("Welcome to this little town. Respond with your name.")
-  return new_number
+  #return new_number
 
 class Player:
   def __init__(name, number):
