@@ -32,7 +32,7 @@ def player_join(message):
   #return new_number
 
 class Player:
-  def __init__(name, number):
+  def __init__(self, name, number):
     print "in player constructor"
     self.mafia = False
     self.alive = True
