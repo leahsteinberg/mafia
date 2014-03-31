@@ -61,7 +61,7 @@ def player_init(request, number):
   new_player = Player(name, number)
   print "made new player"
   townsfolk.append(new_player)
-  return new_player
+  return name
 
     #initialization:
 
