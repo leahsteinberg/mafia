@@ -17,6 +17,7 @@ def mafia_game():
   #if game_state == 'joining':
     #if request.values.get('From', None) not in players_counts:
   join_msg = mafia.player_join(request)
+  print join_msg
   resp = twilio.twiml.Response()
   resp.message(join_msg)
   return str(resp)
