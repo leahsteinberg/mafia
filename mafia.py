@@ -54,6 +54,7 @@ def player_init(request, number):
     if word not in ['hi', 'i', 'am', "i'm", 'im']:
       name = word
       break
+  print name
   new_player = Player(name, number)
   print "made new player"
   townsfolk.append(new_player)
