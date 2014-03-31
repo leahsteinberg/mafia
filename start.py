@@ -2,8 +2,7 @@ from twilio.rest import TwilioRestClient
 from flask import Flask, request, redirect
 import twilio.twiml
 from emoji import e
-import mafia
-
+from mafia import player_counts, player_join, player_init
 app = Flask(__name__)
 
 
@@ -17,15 +16,15 @@ def mafia_game():
   print game_state
   if game_state == 'joining':
     print request.values.get('From', None)
-    print mafia.player_counts.keys()
-    if not this_number in mafia.player_counts.keys():
+    print player_counts.keys()
+    if not this_number in player_counts.keys():
       print "in thisss"
-      join_msg = mafia.player_join(request)
+      join_msg = player_join(request)
       print join_msg
       resp = twilio.twiml.Response()
       resp.message(join_msg)
       return str(resp)
-    elif mafia.player_counts[this_number] > 0:
+    elif player_counts[this_number] > 0:
       "in thatttt"
       name = player_init(request, this_number)
       print "did player init"
