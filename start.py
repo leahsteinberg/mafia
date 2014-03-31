@@ -6,7 +6,7 @@ import mafia
 
 app = Flask(__name__)
 
-player_counts = {}
+
 game_state = ['joining', 'beginning', 'night', 'dawn', 'day']
 game_state = 'joining'
 beginning_players = []
@@ -14,13 +14,13 @@ beginning_players = []
 
 @app.route("/", methods=['GET', 'POST'])
 def mafia_game(): 
-  #if game_state == 'joining':
-    #if request.values.get('From', None) not in players_counts:
-  join_msg = mafia.player_join(request)
-  print join_msg
-  resp = twilio.twiml.Response()
-  resp.message(join_msg)
-  return str(resp)
+  if game_state == 'joining':
+    if request.values.get('From', None) not in players_counts:
+      join_msg = mafia.player_join(request)
+      print join_msg
+      resp = twilio.twiml.Response()
+      resp.message(join_msg)
+      return str(resp)
 
     # elif player_counts[request.values.get('From', None)] > 0:
     #   player_init(request)
