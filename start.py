@@ -17,7 +17,7 @@ def mafia_game():
   if game_state == 'joining':
     print request.values.get('From', None)
     print player_counts.keys()
-    if this_number in player_counts.keys() and len(player_counts.keys()) > 0 and text_list[0] == 'begin':
+    if text_list[0] == 'begin':
       print "got begin"
       game_state = "beginning"
       trigger_beginning()
