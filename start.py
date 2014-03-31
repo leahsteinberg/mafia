@@ -23,7 +23,7 @@ def mafia_game():
       resp = twilio.twiml.Response()
       resp.message(join_msg)
       return str(resp)
-    elif player_counts[this_number] > 0:
+    elif this_number in player_counts.keys(): 
       "in thatttt"
       name = player_init(request, this_number)
       print "did player init"
