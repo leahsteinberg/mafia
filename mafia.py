@@ -18,6 +18,7 @@ def send_group(group_str, announcement):
 
 def player_join(message):
   new_number = message.values.get('From', None)
+  player_counts[new_number] = 0
   message = client.sms.messages.create(to=new_number, from_="+17472335925",
 	                                     body="welcome whats your name")
 
