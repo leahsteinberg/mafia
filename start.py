@@ -13,12 +13,12 @@ beginning_players = []
 
 
 @app.route("/", methods=['GET', 'POST'])
-def mafia_game():
-  
+def mafia_game(): 
   #if game_state == 'joining':
     #if request.values.get('From', None) not in players_counts:
-  message = mafia.player_join(request)
-  resp = twilio.twiml.Response().message(message)
+  join_msg = mafia.player_join(request)
+  resp = twilio.twiml.Response()
+  resp.message(join_msg)
   return str(resp)
 
     # elif player_counts[request.values.get('From', None)] > 0:
