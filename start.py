@@ -17,11 +17,11 @@ def mafia_game():
   if game_state == 'joining':
     print request.values.get('From', None)
     print player_counts.keys()
-    if text_list[0] == 'begin':
-      print "got begin"
-      game_state = "beginning"
-      trigger_beginning()
-      return
+    # if text_list[0] == 'begin':
+      # print "got begin"
+      # game_state = "beginning"
+      # trigger_beginning()
+      # return
     if not this_number in player_counts.keys():
       print "in thisss"
       join_msg = player_join(request)
