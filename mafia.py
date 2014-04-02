@@ -2,10 +2,13 @@ import random
 import twilio
 from twilio.rest import TwilioRestClient
 
+# notes
+# from flask import session, use session variables instead of globals.
+
+
 player_counts = []
-fake_list = [0, 1, 2, 3, 4, 5, 6]
 groups = {'townsfolk': [], 'mafiosos': [], 'innocents': []}
-account = "AC8713d29f391c6ccdc9b9942d98a407df"
+uaccount = "ac8713d29f391c6ccdc9b9942d98a407df"
 token = "d36c9a371567932584ad625db360f3be"
 client = TwilioRestClient(account, token)
 print "client is: ", client
@@ -23,9 +26,10 @@ def joining_logic(text_list, number):
   if not number in player_counts:
     return player_join(text_list, number)
   else:
-    name_msg = player_init(text_list, number)
+    # TODO make sure only unique players, text them you've already joined.
+    name_msg = player_init(text_list, number)# does this work if less than group min???
     if len(groups['townsfolk']) >= GROUP_MIN:
-      name_msg += "Once all the players have joined, start with 'begin'."
+      name_msg += "Sufficient players have joined the game, text 'begin' to start." #make this more clear
       accept_switch = True
       # should text everyone saying they can trigger beginning
       # also text saying the game has begun
@@ -65,7 +69,7 @@ def send_group(group_str, announcement):
     print "sending to: ", person.number, " this: ", announcement
     try:
       message = client.sms.messages.create(to=person.number, from_="+17472335925", body=announcement)
-    except twilio.TwilioRestException as e:
+    except twilio.twiliorestexception as e:
       print e
 
 
@@ -77,28 +81,27 @@ def player_join(message_list, number):
   return "welcome, whats your name"
 
 
-class Player:
-  def __init__(self, number, name):
-    self.mafia = False
-    self.alive = True
-    self.number = number
-    self.name = name
 
 def player_init(message_list, number):
+  # TODO make sure that names and numbers are unique
   print "in player init"
   name = 'no name'
   for word in message_list:
     if word not in ['hi', 'i', 'am', "i'm", 'im']:
       name = word
       break
+  #TODO capitalize first letter of name (google python.)
   new_player = Player(number, name)
   groups['townsfolk'].append(new_player)
   return "It looks like your name is: "+ name+ ". "
 
 def trigger_beginning():
-  assign_groups()
-  
-  return "The game will now begin."
+  global game_state
+  game_state = 'beginning'
+  # TODO text everyone the game has begun, and call help function for everyone
+  assign_groups() 
+  # TODO tell them it's night time also.
+  return "The game will now begin." # dont need to return stuff here I think??
 
 def clean_text(text):
   text = text.lower()
@@ -115,9 +118,39 @@ def assign_groups():
       groups['mafiosos'].append(citizen)
     else:
       groups['innocents'].append(citizen)
+  # TODO more introductory stuff
   send_group('mafiosos', "looks like you're in the mafia!")
   send_group('innocents', "what mafia????")
 
+
+
+def nighttime():
+  #announce nighttime
+  #tell mafia that they need to discuss who to kill
+  #mafia private conference
+  #mafia voting
+  #text mafia who they may kill. and also who is in the mafia?
+  #mafia discussion time game state-> and they say "mafia" at beginning, text all mafia
+  #what they wrote
+  # mafia voting->
+    text them the list
+    kill Leah
+    count up valid votes, if not enough valid votes, ask for more??
+    time counter??
+    or someone randomly killed
+
+def dawn():
+  announce who got killed
+  remove them from the game (tell them goodbye)
+
+def daytime():
+  group conversation
+  same function except dont nee
+
+
+def group_discuss():
+
+def group_vote(which_group):
 
 
 
