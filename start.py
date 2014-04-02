@@ -13,6 +13,12 @@ accept_switch = False
 
 @app.route("/", methods=['GET', 'POST'])
 def mafia_game():
+  print "~~~~~~~got request! yay!~~~~~~~~"
+  print "request is: ", request
+  print "request.values is: ", request.values
+  print "request.values.keys()", request.values.keys()
+  #print "should be args", request.values['args']
+  print "here"
   this_number = request.values.get('From', None)
   text_list = clean_text(request.values.get('Body', None))
   print "something", text_list
@@ -46,8 +52,6 @@ def mafia_game():
       return str(resp)
 
 
-
-    
 
 
 if __name__ == '__main__':
