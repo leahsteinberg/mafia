@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="73e2c70d-8b1b-4d58-a216-5dd91af26f33" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mafiaclass.py" afterPath="$PROJECT_DIR$/mafiaclass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start.py" afterPath="$PROJECT_DIR$/start.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
     </list>
     <ignored path="emoji.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +30,7 @@
       <file leaf-file-name="mafiaclass.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mafiaclass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="61" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.6506024" vertical-offset="450" max-vertical-offset="4605">
+            <state line="197" column="31" selection-start="7550" selection-end="7550" vertical-scroll-proportion="0.36206895" vertical-offset="2745" max-vertical-offset="4410">
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -39,7 +41,7 @@
       <file leaf-file-name="start.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/start.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="26" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+            <state line="33" column="28" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -50,7 +52,7 @@
       <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="38" selection-start="3069" selection-end="3069" vertical-scroll-proportion="-7.076923" vertical-offset="956" max-vertical-offset="1440">
+            <state line="78" column="49" selection-start="3159" selection-end="3159" vertical-scroll-proportion="-9.692307" vertical-offset="918" max-vertical-offset="1485">
               <folding />
             </state>
           </provider>
@@ -69,6 +71,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/start.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/mafiaclass.py" />
       </list>
@@ -129,7 +132,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="true" />
-    <property name="options.lastSelected" value="preferences.sourceCode.Python" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -278,7 +281,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3931507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13150685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14217633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -322,25 +325,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="38" selection-start="3069" selection-end="3069" vertical-scroll-proportion="-7.076923" vertical-offset="956" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="26" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+        <state line="33" column="28" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="49" selection-start="3159" selection-end="3159" vertical-scroll-proportion="-9.692307" vertical-offset="918" max-vertical-offset="1485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mafiaclass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="61" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.6506024" vertical-offset="450" max-vertical-offset="4605">
+        <state line="197" column="31" selection-start="7550" selection-end="7550" vertical-scroll-proportion="0.36206895" vertical-offset="2745" max-vertical-offset="4410">
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

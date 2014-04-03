@@ -21,14 +21,17 @@ class Mafia:
 
 
     def __init__(self):
-        self.state = 'join'
-        self.player_list = []
-        self.min_players = 2
         self.account = "ac8713d29f391c6ccdc9b9942d98a407df"
         self.token = "d36c9a371567932584ad625db360f3be"
         self.client = TwilioRestClient(self.account, self.token)
+        self.start_game()
+
+    def start_game(self):
         self.player_count = 0
         self.to_kill = ''
+        self.state = 'join'
+        self.player_list = []
+        self.min_players = 2
 
 
     def send_text(self, number, text_string):
@@ -69,26 +72,21 @@ class Mafia:
                 self.to_kill = votes.pop()
                 return True
         elif group_str == 'all':
-            print "IN DAYTIME TALLY VOTES"
             votes = []
             alive_people = [player for player in self.player_list if player.alive]
-            print "still alive, in tally vote: ", alive_people
             for player in alive_people:
                 if player.ballot == '':
-                    print "someone didnt vote"
                     return False
                 else:
                     votes.append(player.ballot)
-            print votes
             minimum_votes = math.ceil(self.get_number_alive() / 2.0)
-            print "minimum votes is: ", minimum_votes
             for accused in votes:
-                print "accused is: ", accused, "votes.count(accused) is: ", votes.count(accused)
                 if votes.count(accused) >= minimum_votes:
                     self.to_kill = accused
-                    print "set to kill: ", self.to_kill
+
                     return True
                     # TODO: send something to tell them to keep voting
+            self.send_group('all', 'No one has a majority of votes to be executed. You can change your vote. Keep voting.')
             return False
 
     def get_number_alive(self):
@@ -100,23 +98,21 @@ class Mafia:
         return mafia_names
 
     def mafia_wins(self):
-        self.send_group('all', 'mafia wins.')
-        mafia_string = " ".join(self.get_mafia_names())
-        self.send_group('all', "here's who was in the mafia: " + mafia_string)
+        self.send_group('all', 'Mafia wins.')
+        mafia_string = " ".join([x.capitalize() for x in self.get_mafia_names()])
+        self.send_group('all', "Here's who was in the mafia: " + mafia_string)
         self.state = 'end'
 
 
     def innocents_win(self):
-        self.send_group('all', 'Mafia defeated')
+        self.send_group('all', 'The mafia was defeated!')
         self.state = 'end'
 
     def check_end_condition(self):
         mafiosos = [player for player in self.player_list if (player.mafia and player.alive)]
         num_mafiosos = len(mafiosos)
-        print "num mafiosos: ", num_mafiosos
         innocents = [player for player in self.player_list if (not player.mafia and player.alive)]
         num_innocents = len(innocents)
-        print "num_innocents: ", num_innocents
         if num_innocents > 0 and num_mafiosos > 0:
             return False
         elif num_innocents == 0 and num_mafiosos > 0:
@@ -135,7 +131,7 @@ class Mafia:
         if self.check_end_condition():
             return
         self.clear_ballots()
-        self.send_group('all', "Good morning but someone else has died. Time to accuse the possible mafiosos.")
+        self.send_group('all', "While everyone was sleeping, someone else died. Time to accuse the possible mafiosos.")
         self.state = "day"
 
     def get_player(self, number):
@@ -157,7 +153,6 @@ class Mafia:
                     self.send_text(this_player.number,
                                    "Not a valid name of someone in to kill: " + to_kill.capitalize())
                 if self.tally_votes('all'):
-                    print "we want to kill someone during the day"
                     self.begin_night()
                     self.state = 'night'
 
@@ -165,7 +160,6 @@ class Mafia:
     def kill_player(self):
         if self.to_kill != '':
             player = [player for player in self.player_list if player.name == self.to_kill][0]
-            print "in kill player: ", player.name
             player.alive = False
 
 
@@ -176,10 +170,10 @@ class Mafia:
             if to_kill.lower() in [player.name for player in self.player_list if not player.mafia and player.alive]:
                 if mafioso.ballot != '':
                     self.send_text(mafioso.number,
-                                   "you have changed your voted from " + mafioso.ballot + " to " + to_kill)
+                                   "You have changed your voted from: " + mafioso.ballot + " to: " + to_kill)
                 mafioso.ballot = to_kill
             else:
-                self.send_text(mafioso.number, "not a valid name of someone to kill: " + to_kill)
+                self.send_text(mafioso.number, "Not a valid name of someone to kill: " + to_kill)
             if self.tally_votes('mafia'):
                 self.begin_day()
 
@@ -190,25 +184,18 @@ class Mafia:
             self.mafia_night(text_list, player[0])
             pass
         else:
-            self.send_text(number, "go back to sleep...")
+            self.send_text(number, "it's night time... go back to sleep...")
 
 
     def operator(self, text_list, number):
-        print "in operator, state is: ", self.state
         if self.state == 'join':
             self.join(text_list, number)
         elif self.state == 'night':
-            alive = [p.name for p in self.player_list if p.alive]
-            new_string = " ".join(alive)
-            print "still alive: ", new_string
             self.night(text_list, number)
         elif self.state == 'day':
-            alive = [p.name for p in self.player_list if p.alive]
-            new_string = " ".join(alive)
-            print "still alive: ", new_string
             self.day(text_list, number)
         elif self.state == 'end':
-            print "the game is already over"
+            self.restart_game()
         else:
             print "error"
 
@@ -298,4 +285,4 @@ class Mafia:
                 self.send_text(number, text_string)
 
 
-game_object = Mafia()
+

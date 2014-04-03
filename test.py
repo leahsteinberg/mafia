@@ -79,7 +79,10 @@ send_message(player5[0], 'kill Leah')
 send_message(player3[0], "i am dead but speaking!")
 send_message(player6[0], 'kill Leah')
 
-
+thirtyfour = '01234567890123456789012345678901234'
+payload = {'MessageSid': thirtyfour, 'SmsSid': thirtyfour, 'AccountSid': 'ACec58767d0255847dccc2c2834851802a',
+               'From': '+18185218419', 'To': '+17472335925', 'Body': '', 'NumMedia': '0'}
+r = requests.get("http://127.0.0.1:5000/restart", params=payload)
 
 #send_message(player1[0], 'kill jane')
 

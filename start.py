@@ -6,6 +6,7 @@ import mafiaclass, mafia
 #from mafia import player_counts, player_join, player_init, clean_text, trigger_beginning
 
 app = Flask(__name__)
+game_object = mafiaclass.Mafia()
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -17,7 +18,7 @@ def mafia_game():
     #response_message = "error, I think"
     this_number = request.values.get('From', None)
     text_list = mafia.clean_text(request.values.get('Body', None))
-    mafiaclass.game_object.operator(text_list, this_number)
+    game_object.operator(text_list, this_number)
     #print "in end of flask function"
     # if mafia.game_state == 'joining':
     #   response_message = mafia.joining_logic(text_list, this_number)
@@ -26,6 +27,13 @@ def mafia_game():
     # resp = twilio.twiml.Response()
     # resp.message(response_message)
     # print "TEXT FROM SERVER: ", str(resp)
+    return "place holder text message"
+
+@app.route("/restart")
+def restart_game():
+    game_object.start_game()
+
+
     return "place holder text message"
 
 
