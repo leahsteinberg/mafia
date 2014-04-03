@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73e2c70d-8b1b-4d58-a216-5dd91af26f33" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mafiaclass.py" afterPath="$PROJECT_DIR$/mafiaclass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start.py" afterPath="$PROJECT_DIR$/start.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
-    </list>
+    <list default="true" id="73e2c70d-8b1b-4d58-a216-5dd91af26f33" name="Default" comment="" />
     <ignored path="emoji.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +26,7 @@
       <file leaf-file-name="mafiaclass.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mafiaclass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="31" selection-start="7550" selection-end="7550" vertical-scroll-proportion="0.36206895" vertical-offset="2745" max-vertical-offset="4410">
+            <state line="129" column="25" selection-start="4586" selection-end="4586" vertical-scroll-proportion="4.0995765" vertical-offset="0" max-vertical-offset="4410">
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -78,8 +74,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="13" />
+    <option name="y" value="22" />
+    <option name="width" value="1128" />
+    <option name="height" value="605" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -131,8 +129,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FullScreen" value="true" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -277,14 +275,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="13" y="22" width="1128" height="605" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13150685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14217633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16169828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -343,7 +341,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mafiaclass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="31" selection-start="7550" selection-end="7550" vertical-scroll-proportion="0.36206895" vertical-offset="2745" max-vertical-offset="4410">
+        <state line="129" column="25" selection-start="4586" selection-end="4586" vertical-scroll-proportion="4.0995765" vertical-offset="0" max-vertical-offset="4410">
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
