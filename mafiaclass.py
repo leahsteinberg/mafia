@@ -222,7 +222,7 @@ class Mafia:
             if i < number_mafia:
                 player.mafia = True
                 print player.name, " is in the mafia."
-        self.send_group('mafiosos', "looks like you're in the mafia!")
+        self.send_group('mafia', "looks like you're in the mafia!")
         self.send_group('innocents', "what mafia????")
 
     def help_message(self, who_to_send):
