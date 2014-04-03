@@ -23,7 +23,7 @@ class Mafia:
     def __init__(self):
         self.state = 'join'
         self.player_list = []
-        self.min_players = 1
+        self.min_players = 2
         self.account = "ac8713d29f391c6ccdc9b9942d98a407df"
         self.token = "d36c9a371567932584ad625db360f3be"
         self.client = TwilioRestClient(self.account, self.token)
@@ -41,7 +41,9 @@ class Mafia:
 
     def send_group(self, group_str, announcement):
         if group_str == 'mafia':
-            group = [player for player in self.player_list if player.mafia == True]
+            group = [player for player in self.player_list if player.mafia]
+        elif group_str == 'innocents':
+            group = [player for player in self.player_list if not player.mafia]
         else:
             group = self.player_list
         print "**TO GRP: ", group_str, " MSG: ", announcement
@@ -211,9 +213,11 @@ class Mafia:
             print "error"
 
     def assign_groups(self):
-        #random.shuffle(self.player_list)
+        random.shuffle(self.player_list)
         total_players = self.player_count
         number_mafia = self.player_count / 3
+        if number_mafia == 0:
+            number_mafia = 1
         for i, player in enumerate(self.player_list):
             if i < number_mafia:
                 player.mafia = True
