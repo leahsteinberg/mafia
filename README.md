@@ -4,4 +4,7 @@ This game lets you play the game 'mafia' against at least 6 friends over text me
 
 Uses a Flask server running on Heroku, as well as the Twilio API.
 
-
+#### To Do:
+* Implement some intense emoji support.
+* Allow for multiple games to be played at the same time. The games are already encapsulated in classes, so it will be easy to separate out the games, I just need a way to communicate this to the players.
+* Render messages (except for secret Mafia messages) in HTML so there's a way to watch the game online.
