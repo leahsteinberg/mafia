@@ -9,10 +9,7 @@
 #   request.values.keys() ['Body', 'MessageSid', 'From', 'To', 'NumMedia', 'AccountSid', 'SmsSid']
 
 
-
-
 import requests, time
-
 
 test_account_sid = "ACec58767d0255847dccc2c2834851802a"
 test_auth_token = "6caba219015b82c642bef6d56a87dff2"

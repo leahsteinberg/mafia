@@ -1,0 +1,15 @@
+# Questions #
+
+1) Why doesn't the init function
+
+
+2) How does the twilio account work for Python?
+
+
+
+
+Handle multiple games simultaneously
+Encapsulate
+
+Build zulip bot
+Add live game watching from the web - update web site everytime something happens
