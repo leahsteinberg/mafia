@@ -24,6 +24,11 @@ class Mafia:
         self.account = "ac8713d29f391c6ccdc9b9942d98a407df"
         self.token = "d36c9a371567932584ad625db360f3be"
         self.client = TwilioRestClient(self.account, self.token)
+        self.player_list = []
+        self.player_count = 0
+        self.to_kill = ''
+        self.state = 'join'
+        self.min_players = 2
         self.start_game()
 
     def start_game(self):
@@ -31,7 +36,7 @@ class Mafia:
         self.to_kill = ''
         self.state = 'join'
         self.player_list = []
-        self.min_players = 2
+        self\.min_players = 2
 
 
     def send_text(self, number, text_string):
@@ -250,7 +255,7 @@ class Mafia:
         #print "in begin night"
 
 
-    def start_game(self):
+    def setup_game(self):
         #send instructions (help)
         self.prune()
         self.help_message('all')
@@ -262,7 +267,7 @@ class Mafia:
     def join(self, word_list, number):
         text_string = ''
         if self.player_count >= self.min_players and 'begin' in word_list:
-            self.start_game()
+            self.setup_game()
         else:
             if 'begin' in word_list:
                 text_string = 'Not enough players yet'

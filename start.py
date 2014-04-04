@@ -2,11 +2,14 @@ from twilio.rest import TwilioRestClient
 from flask import Flask, request, redirect
 import twilio.twiml
 from emoji import e
+
 import mafiaclass, mafia
 #from mafia import player_counts, player_join, player_init, clean_text, trigger_beginning
 
 app = Flask(__name__)
+
 game_object = mafiaclass.Mafia()
+
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -23,7 +26,6 @@ def mafia_game():
     # if mafia.game_state == 'joining':
     #   response_message = mafia.joining_logic(text_list, this_number)
     # if mafia.game_state == 'beginning':
-
     # resp = twilio.twiml.Response()
     # resp.message(response_message)
     # print "TEXT FROM SERVER: ", str(resp)
@@ -32,8 +34,6 @@ def mafia_game():
 @app.route("/restart")
 def restart_game():
     game_object.start_game()
-
-
     return "place holder text message"
 
 
