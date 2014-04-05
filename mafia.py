@@ -29,7 +29,7 @@ class Mafia:
         #self.to_kill = ''
         #self.state = 'join'
         #self.min_players = 2
-        self.debug = True
+        self.debug = False
         self.start_game()
 
     def start_game(self):
