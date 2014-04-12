@@ -2,7 +2,7 @@ from twilio.rest import TwilioRestClient
 import twilio
 import random
 import math
-
+import password
 
 class Mafia:
     class Player:
@@ -21,9 +21,9 @@ class Mafia:
 
 
     def __init__(self):
-        self.account = "ac8713d29f391c6ccdc9b9942d98a407df"
-        self.token = "d36c9a371567932584ad625db360f3be"
-        self.client = TwilioRestClient(self.account, self.token)
+        self.account = password.account
+	self.token = password.token
+	self.client = TwilioRestClient(self.account, self.token)
         #self.player_list = []
         #self.player_count = 0
         #self.to_kill = ''
@@ -225,7 +225,7 @@ class Mafia:
         self.send_group('innocents', "what mafia????")
 
     def help_message(self, who_to_send):
-        help_string = "Here's a bunch of introductory instructions."
+        help_string = "Vote to execute someone by texting 'kill' and their name. You can change your vote until a majority has been reached."
         if who_to_send == 'all':
             self.send_group('all', help_string)
         else:
